@@ -294,6 +294,7 @@ The `<input>` field which is used for entering new tags. It's a jQuery object, s
 * [Tobias Schmidt](http://github.com/grobie)
 * [Skylar Challand](http://github.com/sskylar)
 * [Alex Ehlke](http://github.com/aehlke) *current maintainer*
+* [Hao](http://github.com/hao)
 
 
 ## License
