@@ -124,6 +124,12 @@ For example, the user can enter `John Smith` instead of `"John Smith"`.
 
 Defaults to *false*.
 
+### focusedInputClass (String)
+
+Optionally add a *focusedInputClass* class to style the focused `input`.
+
+Defaults to *null*
+
 ### readOnly (boolean)
 
 When enabled, tag-it just render tags. It disables the ability to edit tags.
