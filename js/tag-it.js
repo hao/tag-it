@@ -1,7 +1,7 @@
 /*
 * jQuery UI Tag-it!
 *
-* @version v2.0 (06/2011)
+* @version v2.01 (04/2014)
 *
 * Copyright 2011, Levy Carneiro Jr.
 * Released under the MIT license.
@@ -16,6 +16,7 @@
 *   Tobias Schmidt
 *   Skylar Challand
 *   Alex Ehlke
+*   N. Hao Ching (@hao)
 *
 * Maintainer:
 *   Alex Ehlke - Twitter: @aehlke
@@ -31,6 +32,7 @@
             allowDuplicates   : false,
             caseSensitive     : true,
             fieldName         : 'tags',
+            focusedInputClass : null,   // Class for styling the focused input field.
             placeholderText   : null,   // Sets `placeholder` attr on input field.
             readOnly          : false,  // Disables editing.
             removeConfirmation: false,  // Require confirmation to remove tags.
@@ -277,7 +279,16 @@
                     if (!that.tagInput.data('autocomplete-open')) {
                         that.createTag(that._cleanedInput());
                     }
+                    if (that.options.focusedInputClass) {
+                        that.tagInput.parent('li').removeClass(that.options.focusedInputClass);
+                    }
                 });
+            if (this.options.focusedInputClass) {
+                this.tagInput
+                    .focus(function(e){
+                        that.tagInput.parent('li').addClass(that.options.focusedInputClass);
+                    });
+            }
 
             // Autocomplete.
             if (this.options.availableTags || this.options.tagSource || this.options.autocomplete.source) {

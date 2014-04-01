@@ -59,6 +59,17 @@
             });
 
             //-------------------------------
+            // Styling the focused input field
+            //-------------------------------
+            $('#focusedInputClass').tagit({
+                availableTags: sampleTags, // this param is of course optional. it's for autocomplete.
+                // configure the name of the input field (will be submitted with form), default: item[tags]
+                itemName: 'item',
+                fieldName: 'tags',
+                focusedInputClass : 'tagit-new-focused'
+            });
+
+            //-------------------------------
             // Preloading data in markup
             //-------------------------------
             $('#myULTags').tagit({
@@ -195,6 +206,18 @@
         <form>
             <p></p>
             <ul id="allowSpacesTags"></ul>
+        </form>
+
+        <hr>
+        <h3>Styling the Focused Input Field</h3>
+        <form>
+            <p>
+                Example of styling the focused input field.
+            </p>
+            <ul id="focusedInputClass">
+                <li>Tag1</li>
+                <li>Tag2</li>
+            </ul>
         </form>
 
         <hr>
