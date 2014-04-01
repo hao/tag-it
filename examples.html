@@ -59,6 +59,18 @@
             });
 
             //-------------------------------
+            // Edit tags by clicking on them
+            //-------------------------------
+            $('#editable').tagit({
+                availableTags: sampleTags, // this param is of course optional. it's for autocomplete.
+                // configure the name of the input field (will be submitted with form), default: item[tags]
+                itemName: 'item',
+                fieldName: 'tags',
+                editable: true,
+                focusedInputClass: 'tagit-new-focused'
+            });
+
+            //-------------------------------
             // Styling the focused input field
             //-------------------------------
             $('#focusedInputClass').tagit({
@@ -206,6 +218,18 @@
         <form>
             <p></p>
             <ul id="allowSpacesTags"></ul>
+        </form>
+
+        <hr>
+        <h3>Editing Tags by Clicking on Them</h3>
+        <form>
+            <p>
+                Example of editing tags by clicking on them.
+            </p>
+            <ul id="editable">
+                <li>Tag1</li>
+                <li>Tag2</li>
+            </ul>
         </form>
 
         <hr>

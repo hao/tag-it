@@ -130,6 +130,12 @@ Optionally add a *focusedInputClass* class to style the focused `input`.
 
 Defaults to *null*
 
+### editable (boolean)
+
+When enabled, tag-it allows tags to be edited by clicking on them.
+
+Defaults to *false*.
+
 ### readOnly (boolean)
 
 When enabled, tag-it just render tags. It disables the ability to edit tags.

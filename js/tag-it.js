@@ -31,6 +31,7 @@
         options: {
             allowDuplicates   : false,
             caseSensitive     : true,
+            editable          : false,  // Enables editing tag by clicking on it.
             fieldName         : 'tags',
             focusedInputClass : null,   // Class for styling the focused input field.
             placeholderText   : null,   // Sets `placeholder` attr on input field.
@@ -184,6 +185,11 @@
                         var tag = target.closest('.tagit-choice');
                         if (!tag.hasClass('removed')) {
                             that._trigger('onTagClicked', e, {tag: tag, tagLabel: that.tagLabel(tag)});
+                        }
+                        if (that.options.editable) {
+                            that.removeTag(tag);
+                            that.tagInput.val(that.tagLabel(tag));
+                            that.tagInput.focus();
                         }
                     } else {
                         // Sets the focus() to the input field, if the user
