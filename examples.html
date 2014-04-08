@@ -59,6 +59,19 @@
             });
 
             //-------------------------------
+            // Disable removal of tags by backspacing in the input field
+            //-------------------------------
+            $('#backspaceRemoveOff').tagit({
+                availableTags: sampleTags, // this param is of course optional. it's for autocomplete.
+                // configure the name of the input field (will be submitted with form), default: item[tags]
+                backspaceRemove: false,
+                itemName: 'item',
+                fieldName: 'tags',
+                editable: true,
+                focusedInputClass: 'tagit-new-focused'
+            });
+
+            //-------------------------------
             // Edit tags by clicking on them
             //-------------------------------
             $('#editable').tagit({
@@ -218,6 +231,18 @@
         <form>
             <p></p>
             <ul id="allowSpacesTags"></ul>
+        </form>
+
+        <hr>
+        <h3>Backspace Removal Off</h3>
+        <form>
+            <p>
+                Example of disabling removal of the last tag by keying a backspace in the empty input field.
+            </p>
+            <ul id="backspaceRemoveOff">
+                <li>Tag1</li>
+                <li>Tag2</li>
+            </ul>
         </form>
 
         <hr>

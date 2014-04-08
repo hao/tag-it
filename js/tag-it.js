@@ -30,6 +30,7 @@
     $.widget('ui.tagit', {
         options: {
             allowDuplicates   : false,
+            backspaceRemove   : true,   // Enables removing last tag with backspace key.
             caseSensitive     : true,
             editable          : false,  // Enables editing tag by clicking on it.
             fieldName         : 'tags',
@@ -231,17 +232,19 @@
             // Events.
             this.tagInput
                 .keydown(function(event) {
-                    // Backspace is not detected within a keypress, so it must use keydown.
-                    if (event.which == $.ui.keyCode.BACKSPACE && that.tagInput.val() === '') {
-                        var tag = that._lastTag();
-                        if (!that.options.removeConfirmation || tag.hasClass('remove')) {
-                            // When backspace is pressed, the last tag is deleted.
-                            that.removeTag(tag);
+                    if (that.options.backspaceRemove) {
+                        // Backspace is not detected within a keypress, so it must use keydown.
+                        if (event.which == $.ui.keyCode.BACKSPACE && that.tagInput.val() === '') {
+                            var tag = that._lastTag();
+                            if (!that.options.removeConfirmation || tag.hasClass('remove')) {
+                                // When backspace is pressed, the last tag is deleted.
+                                that.removeTag(tag);
+                            } else if (that.options.removeConfirmation) {
+                                tag.addClass('remove ui-state-highlight');
+                            }
                         } else if (that.options.removeConfirmation) {
-                            tag.addClass('remove ui-state-highlight');
+                            that._lastTag().removeClass('remove ui-state-highlight');
                         }
-                    } else if (that.options.removeConfirmation) {
-                        that._lastTag().removeClass('remove ui-state-highlight');
                     }
 
                     // Comma/Space/Enter are all valid delimiters for new tags,

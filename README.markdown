@@ -124,6 +124,12 @@ For example, the user can enter `John Smith` instead of `"John Smith"`.
 
 Defaults to *false*.
 
+### backspaceRemove (boolean)
+
+When enabled, tag-it allows the last tag to be removed by backspacing in the blank input.
+
+Defaults to *true*.
+
 ### focusedInputClass (String)
 
 Optionally add a *focusedInputClass* class to style the focused `input`.
